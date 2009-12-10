@@ -3,34 +3,28 @@
  * Class Traction.
  *
  * PHP api wrapper for Traction
+ * Thanks to Lighthouse Interactive for providing the time
+ * www.lighthouseinteractive.com.au
  *
- * @author Rufus Post
+ * @author Rufus Post rufus@li.net.au
  * @date 02/12/2009
  */
 
 class Traction {
 
 /**
- * Names of classes with their objects.
+ * Traction gateway url
  *
- * @var array
- * @access private
+ * @var string
+ * @access public
  */
-        private $gateway = 'au.api.tractionplatform.com/ext/';
+        public $gateway = 'au.api.tractionplatform.com/ext/';
 
 /**
- * Names of classes with their objects.
+ * Traction response code 0 for success
  *
- * @var array
- * @access private
- */
-        private $client;
-
-/**
- * Names of classes with their objects.
- *
- * @var array
- * @access private
+ * @var int
+ * @access public
  */
         public $tracCode;
 
@@ -38,71 +32,71 @@ class Traction {
  * Error returned by traction
  *
  * @var string
- * @access private
+ * @access public
  */
         public $tracError;
 
 /**
- * Names of classes with their objects.
+ * Curl transfer statistics
  *
  * @var array
- * @access private
+ * @access public
  */
         public $transfer;
 
 /**
- * Names of classes with their objects.
+ * Raw response headers
  *
- * @var array
- * @access private
+ * @var string
+ * @access public
  */
         public $response;
 
 /**
- * Names of classes with their objects.
+ * Decoded headers
  *
  * @var array
- * @access private
+ * @access public
  */
         public $headers;
 
 /**
- * Names of classes with their objects.
+ * Endpoint data for traction auth
  *
  * @var array
- * @access private
+ * @access public
  */
         public $endpoint = array();
 
 /**
- * Names of classes with their objects.
+ * Wether to pass test string to traction
  *
- * @var array
+ * @var boolean
  * @access private
  */
         public $test = false;
 
 /**
- * Names of classes with their objects.
+ * Data to be passed to traction function
  *
  * @var array
- * @access private
+ * @access public
  */
         public $data;
 
 /**
- * Names of classes with their objects.
+ * Returns traction id if function successfull
  *
- * @var array
- * @access private
+ * @var int
+ * @access public
  */
         public $lastCustomerId;
 
 /**
- * Names of classes with their objects.
+ * ssl
  *
- * @var array
- * @access private
+ * @var boolena
+ * @access public
  */
         public $secure = false;
 
@@ -126,7 +120,7 @@ class Traction {
                 curl_exec($ch);
                 $this->response = ob_get_clean();
                 $this->transfer = curl_getinfo($ch);
-		            curl_close($ch);
+		curl_close($ch);
                 if (is_bool($this->response)) {
                         if ($this->response==false){
                                 throw new Exception('No connection');
