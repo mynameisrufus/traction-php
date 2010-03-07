@@ -3,22 +3,25 @@
 ###Usage
 Currently only supports `AddCustomer`
 
-`$object = new Traction`
+    $object = new Traction
 
-To test set `$object->test = true`
+To test:
+
+    $object->test = true
 
 Add endpoint data to object:
 
-`$object->endpoint = array('Password'=>'password','EndPointID'=>123456,'UserID'=>'myuser');`
+    $object->endpoint = array('Password'=>'password','EndPointID'=>123456,'UserID'=>'myuser');
 
 
 ###Methods
-`$object->data = array('email'=>'joe@blog.com', 'firstname'=>'Joe');`
-`$object->AddCustomer();`
+
+    $object->data = array('email'=>'joe@blog.com', 'firstname'=>'Joe');
+    $object->AddCustomer();
 
 or
 
-`$object->AddCustomer('joe@blog.com');`
+    $object->AddCustomer('joe@blog.com');
 
 ###License
 
