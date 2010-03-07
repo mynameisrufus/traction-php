@@ -3,10 +3,8 @@
  * Class Traction.
  *
  * PHP api wrapper for Traction
- * Thanks to Lighthouse Interactive for providing the time
- * www.lighthouseinteractive.com.au
  *
- * @author Rufus Post rufus@li.net.au
+ * @author Rufus Post rufuspost@gmail.com
  * @date 02/12/2009
  */
 
@@ -120,7 +118,7 @@ class Traction {
                 curl_exec($ch);
                 $this->response = ob_get_clean();
                 $this->transfer = curl_getinfo($ch);
-		curl_close($ch);
+                curl_close($ch);
                 if (is_bool($this->response)) {
                         if ($this->response==false){
                                 throw new Exception('No connection');
@@ -135,7 +133,6 @@ class Traction {
  * Decode Traction response
  *
  * @access private
- * @static
  */
         private function decodeResponse() {
                 $headers = array();
@@ -165,7 +162,6 @@ class Traction {
  *
  * @return string Html encoded data
  * @access private
- * @static
  */
         private function endpointEncode() {
                 if(empty($this->endpoint)) return false;
@@ -186,7 +182,6 @@ class Traction {
  *
  * @return string Html encoded data
  * @access private
- * @static
  */
         private function customerEncode() {
                 foreach($this->data as $key => $val) {
@@ -199,7 +194,6 @@ class Traction {
  * Call AddCustomer api
  *
  * @access public
- * @static
  */
         public function AddCustomer($email = null) {
                 if(!$email) {
